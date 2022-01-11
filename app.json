@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "lil_coin",
+    "name": "lil coin",
     "slug": "lil_coin",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -23,7 +23,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.ivanr19.lil_coin"
     },
     "web": {
       "favicon": "./assets/favicon.png"
