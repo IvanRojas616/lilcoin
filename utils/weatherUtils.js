@@ -10,16 +10,16 @@ export const howIsTheWeather = async (setErrorMsg, setLocation, API_KEY) => {
         return;
     }
 
-    let location = await Location.getCurrentPositionAsync({}).coords;
+    let location = await (await Location.getCurrentPositionAsync({})).coords;
     //console.log(location);
 
     if (location !== null) {
         const lat = location.latitude;
         const lon = location.longitude;
-        console.log(lat, lon, API_KEY);
+        //console.log(lat, lon, API_KEY);
 
         await fetch(
-            `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`
+            `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`
         ).then(async res => {
             return await res.json().then(data => {
                 setLocation(data);

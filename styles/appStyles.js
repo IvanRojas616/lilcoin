@@ -1,3 +1,5 @@
+import { StyleSheet } from "react-native";
+
 export const appStyles = StyleSheet.create({
     container: {
       paddingVertical: 4,
@@ -7,6 +9,7 @@ export const appStyles = StyleSheet.create({
     },
     listCoins: {
       width: "95%",
+      marginTop:3
     },
     headerAppText: {
       fontSize: 25,
@@ -30,6 +33,7 @@ export const appStyles = StyleSheet.create({
     },
     textsub: {
       color: "#7C47E6",
-      marginRight: 5
+      marginRight: 5,
+      textAlign:"center"
     },
   });

@@ -5,6 +5,7 @@ import {
   FlatList,
   TextInput,
   StatusBar,
+  Image
 } from "react-native";
 import CoinCard from "./components/CoinCard";
 import * as Network from "expo-network";
@@ -56,7 +57,7 @@ const App = () => {
         style={appStyles.textsub}
       >{`Hi ${Device.deviceName}, you have a ${Device.brand} with ${Device.osName} v${Device.osVersion}`}</Text>
       <Text style={{ color: "#7C47E6" }}>{`Your ip address is ${ip}`}</Text>
-      <View style={{ flexDirection: "row" }}>
+      <View style={{ flexDirection: "row"}}>
         {weatherInfo === null ? (
           <>
             <FontAwesome5 name="sad-cry" size={24} color="purple" />
@@ -71,22 +72,22 @@ const App = () => {
                 marginHorizontal: 10,
               }}
               source={{
-                uri: `https://openweathermap.org/img/w/${weatherInfo.weather[0].icon}`,
+                uri: `https://openweathermap.org/img/w/${weatherInfo.weather[0].icon}.png`,
               }}
             />
             <Text
               style={appStyles.textsub}
-            >{`${weatherInfo.name} - ${weatherInfo.main.temp}`}</Text>
+            >{`${weatherInfo.name}  ${weatherInfo.main.temp}°`}</Text>
           </>
         )}
-        <WhoamiButton/>
       </View>
+      <WhoamiButton/>
       <FlatList
         style={appStyles.listCoins}
         refreshing={refreshList}
         onRefresh={async () => {
           setRefreshList(true);
-          await retrieveCoins();
+          await retrieveCoins(setCoins);
           setRefreshList(false);
         }}
         showsVerticalScrollIndicator={false}
